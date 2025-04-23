@@ -1,5 +1,5 @@
+import { resolve } from "node:path";
 import { defineConfig } from "vite";
-import { resolve } from "path";
 
 export default defineConfig({
   build: {
@@ -14,7 +14,7 @@ export default defineConfig({
       external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
         globals: {
-          react: "React",
+          "react": "React",
           "react-dom": "React-dom",
           "react/jsx-runtime": "react/jsx-runtime",
         },

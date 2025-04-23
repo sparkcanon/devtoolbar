@@ -5,11 +5,11 @@
   "private": true,
   "exports": {
     "types": "./index.d.ts",
-    "import": "./dist/counter.js",
-    "require": "./dist/counter.umd.cjs"
+    "import": "./dist/devtoolbar.js",
+    "require": "./dist/devtoolbar.umd.cjs"
   },
-  "main": "./dist/counter.umd.cjs",
-  "module": "./dist/counter.js",
+  "main": "./dist/devtoolbar.umd.cjs",
+  "module": "./dist/devtoolbar.js",
   "types": "./index.d.ts",
   "files": [
     "dist",
