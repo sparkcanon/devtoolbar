@@ -1,5 +1,7 @@
+import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
@@ -7,8 +9,6 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
       formats: ["es"],
-      name: "devtoolbar",
-      fileName: "devtoolbar",
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
@@ -21,4 +21,11 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    dts({
+      tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
+      outDir: resolve(__dirname, "dist"),
+    }),
+    react(),
+  ],
 });

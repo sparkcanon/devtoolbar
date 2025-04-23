@@ -2,7 +2,7 @@ import antfu from "@antfu/eslint-config";
 
 function createConfig(options, ...userConfigs) {
   return antfu({
-    type: "app",
+    type: "lib",
     typescript: true,
     formatters: true,
     stylistic: {
