@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { Button } from "../lib/main";
+import { DevToolbar } from "../lib/main";
 
 function App() {
   return (
-    <div>
-      <Button onClick={() => alert("Button clicked!")}>Click me</Button>
-    </div>
+    <DevToolbar />
   );
 }
 

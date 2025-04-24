@@ -1,3 +1,3 @@
 import "./main.css";
 
-export { Button } from "./components/button";
+export { DevToolbar } from "./components/dev-toolbar";
