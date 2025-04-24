@@ -9,8 +9,6 @@ export default defineConfig({
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
-      name: "devtoolbar",
-      fileName: format => `index.${format}.js`,
       formats: ["es"],
     },
     rollupOptions: {
@@ -30,7 +28,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     dts({
-      rollupTypes: true,
+      tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
   ],
 });
