@@ -29,4 +29,8 @@ function createConfig(options, ...userConfigs) {
   }, ...userConfigs);
 }
 
-export default createConfig();
+export default createConfig({
+  react: true,
+}, {
+  ignores: ["src/**/*.tsx"],
+});

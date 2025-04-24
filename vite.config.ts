@@ -1,3 +1,4 @@
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
@@ -8,24 +9,28 @@ export default defineConfig({
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
+      name: "devtoolbar",
+      fileName: format => `index.${format}.js`,
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: ["react", "react-dom", "tailwindcss"],
       output: {
         globals: {
           "react": "React",
-          "react-dom": "React-dom",
-          "react/jsx-runtime": "react/jsx-runtime",
+          "react-dom": "ReactDOM",
+          "tailwindcss": "tailwindcss",
         },
       },
     },
+    sourcemap: true,
+    emptyOutDir: true,
   },
   plugins: [
-    dts({
-      tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
-      outDir: resolve(__dirname, "dist"),
-    }),
     react(),
+    tailwindcss(),
+    dts({
+      rollupTypes: true,
+    }),
   ],
 });

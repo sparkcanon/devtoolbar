@@ -4,16 +4,17 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/devtoolbar.js",
-    "require": "./dist/devtoolbar.umd.cjs"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/devtoolbar.es.js"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "main": "./dist/devtoolbar.umd.cjs",
   "module": "./dist/devtoolbar.js",
-  "types": "./index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "index.d.ts"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
@@ -28,10 +29,16 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.12.0",
+    "@tailwindcss/vite": "^4.1.4",
     "@types/node": "^22.14.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.17.0",
     "eslint-plugin-format": "^0.1.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "tailwindcss": "^4.1.4",
     "typescript": "~5.7.3",
     "vite": "^6.1.1",
     "vite-plugin-dts": "^4.5.3"
