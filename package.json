@@ -7,12 +7,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/devtoolbar.es.js"
+      "import": "./dist/index.es.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "main": "./dist/devtoolbar.umd.cjs",
-  "module": "./dist/devtoolbar.js",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
