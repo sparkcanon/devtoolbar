@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 export default defineConfig({
   build: {
@@ -10,6 +11,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
       fileName: format => `index.${format}.js`,
+      cssFileName: "style.css",
       formats: ["es"],
     },
     rollupOptions: {
@@ -29,7 +31,9 @@ export default defineConfig({
     react(),
     tailwindcss(),
     dts({
+      rollupTypes: true,
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
+    libInjectCss(),
   ],
 });
