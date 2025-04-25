@@ -19,9 +19,7 @@ export default defineConfig({
           "react": "React",
           "react-dom": "ReactDOM",
         },
-        assetFileNames: (_assetInfo) => {
-          return "style.css";
-        },
+        assetFileNames: "style.css",
       },
     },
     sourcemap: true,
