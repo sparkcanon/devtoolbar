@@ -9,15 +9,21 @@ export default defineConfig({
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
+      fileName: format => `index.${format}.js`,
       formats: ["es"],
     },
+    watch: {
+      include: ["lib/**/*.ts", "lib/**/*.tsx", "package.json"],
+    },
     rollupOptions: {
-      external: ["react", "react-dom", "tailwindcss"],
+      external: ["react", "react-dom"],
       output: {
         globals: {
           "react": "React",
           "react-dom": "ReactDOM",
-          "tailwindcss": "tailwindcss",
+        },
+        assetFileNames: (_assetInfo) => {
+          return "style.css";
         },
       },
     },

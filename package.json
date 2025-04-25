@@ -1,9 +1,12 @@
 {
-  "name": "devtoolbar",
+  "name": "@sparkcanon/devtoolbar",
   "type": "module",
   "version": "0.0.1",
   "private": false,
   "packageManager": "pnpm@9.14.2",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
