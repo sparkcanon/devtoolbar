@@ -12,9 +12,6 @@ export default defineConfig({
       fileName: format => `index.${format}.js`,
       formats: ["es"],
     },
-    watch: {
-      include: ["lib/**/*.ts", "lib/**/*.tsx", "package.json"],
-    },
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
