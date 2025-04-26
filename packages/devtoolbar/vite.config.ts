@@ -11,13 +11,14 @@ export default defineConfig({
     tailwindcss(),
     dts({
       tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
+      rollupTypes: true,
     }),
     libInjectCss(),
   ],
   build: {
     lib: {
       entry: resolve(__dirname, "lib/index.ts"),
-      fileName: format => `index.${format}.js`,
+      fileName: "index",
       formats: ["es"],
     },
     copyPublicDir: false,
