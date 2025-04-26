@@ -6,34 +6,31 @@ import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 export default defineConfig({
-  build: {
-    copyPublicDir: false,
-    lib: {
-      entry: resolve(__dirname, "lib/main.ts"),
-      fileName: format => `index.${format}.js`,
-      cssFileName: "style.css",
-      formats: ["es"],
-    },
-    rollupOptions: {
-      external: ["react", "react-dom"],
-      output: {
-        globals: {
-          "react": "React",
-          "react-dom": "ReactDOM",
-        },
-        assetFileNames: "style.css",
-      },
-    },
-    sourcemap: true,
-    emptyOutDir: true,
-  },
   plugins: [
     react(),
     tailwindcss(),
     dts({
-      rollupTypes: true,
-      tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
+      tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
     }),
     libInjectCss(),
   ],
+  build: {
+    lib: {
+      entry: resolve(__dirname, "lib/index.ts"),
+      fileName: format => `index.${format}.js`,
+      formats: ["es"],
+    },
+    copyPublicDir: false,
+    rollupOptions: {
+      external: ["react", "react-dom", "react/jsx-runtime"],
+      output: {
+        globals: {
+          "react": "React",
+          "react-dom": "ReactDOM",
+          "react/jsx-runtime": "ReactJSXRuntime",
+        },
+        assetFileNames: "style.css",
+      },
+    },
+  },
 });
