@@ -3,7 +3,7 @@ import antfu from "@antfu/eslint-config";
 export default function createConfig(options, ...userConfigs) {
   return antfu(
     {
-      type: "app",
+      type: "lib",
       typescript: true,
       formatters: true,
       stylistic: {
@@ -35,6 +35,6 @@ export default function createConfig(options, ...userConfigs) {
         ],
       },
     },
-    ...userConfigs
+    ...userConfigs,
   );
 }
